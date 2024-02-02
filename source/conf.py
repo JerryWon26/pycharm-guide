@@ -28,7 +28,7 @@ import os
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['chinese_search','sphinx.ext.mathjax']
+extensions = ['chinese_search','sphinx.ext.mathjax', 'sphinx_sitemap','sphinx_multiversion']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -112,14 +112,6 @@ html_js_files = [
     'js/baidutongji.js',
 ]
 
-# General configuration.
-#with open("/home/docs/checkouts/readthedocs.org/user_builds/magic-python-guide/envs/latest/lib/python3.7/site-packages/sphinx/registry.py", "r") as file:
-#    content = file.read()
-#    content=content.replace("sphinx.application", "sphinx.errors")
-#
-#with open("/home/docs/checkouts/readthedocs.org/user_builds/magic-python-guide/envs/latest/lib/python3.7/site-packages/sphinx/registry.py", "w") as file:
-#    file.write(content)
-
 author = '王炳明'
 copyright = '2020-2021, Python编程时光'
 exclude_patterns = ['_build']
@@ -129,4 +121,12 @@ release = '2.0'
 version = '2.0'
 
 # Options for extensions.
-disqus_shortname = 'iswbm'  # Add this line to conf.py.
+html_baseurl = 'https://pycharm.iswbm.com'
+html_sidebars = {
+    '**': [
+        'versioning.html',
+    ],
+}
+
+smv_latest_version = 'win'
+sitemap_url_scheme = "{link}"
